@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Storage / Uploads</title>
+    <style>
+        img {
+            width: 500px;
+            height: 350px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Uploads </h1>
+    <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/images">Images</a></li>
+            <li><a href="/videos">Videos</a></li>
+            <li><a href="/uploads">Uploads</a></li>
+        </ul>
+    </div>
+    <div>
+        <form action="/uploads" method="post" enctype="multipart/form-data">
+            <label>Upload File</label>
+            <input type="file" id="file" name="file" accept="image/*,video/*" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr />
+    <div>
+        <h3>Uploads</h3>
+        {{ range . }}
+            <img src="{{ .Link }}" alt="{{ .Name }}" />
+        {{ end }}
+    </div>
+</body>
+</html>
